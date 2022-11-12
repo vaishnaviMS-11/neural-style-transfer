@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of the document</title>
+    </head>
+    <style>
+        body {
+          background-image: url('background-2687925_960_720.webp');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+        </style>
+        
+  <body align="center">
+    <h2>Maths Used..</h2>
+    <p><h3> Table of Contents</h3></p>
+    <a  href="#neural">NEURAL NETWORK</a><br>
+    <a  href="#CNN">CNN</a><br>
+    <a href="#VGG16">VGG16</a><br>
+    <a href="#loss">LOSS FUNCTION</a><br>
+    <a href="#adam">ADAM  OPTIMIZER</a><br>
+  
+   <p>
+        <a id="neural"><h2>NEURAL NETWORK</h2></a><br>
+
+        A neural network is structured like the human brain and consists of artificial neurons, also known as nodes. These nodes are stacked next to each other in three layers:
+        <ul>
+            <li>The input layer </li>
+            <li>The hidden layer(s) </li>
+            <li>The output layer </li>
+        </ul>
+    </p> 
+    <img src="1.png" alt="neural network">
+    <p>
+        Data provides each node with information in the form of inputs. The node multiplies the inputs with random weights, calculates them, and adds a bias. Finally, nonlinear functions, also known as activation functions, are applied to determine which neuron to fire.    </p>
+    </p>   
+
+    <a id="CNN"><h2>CNN</h2></a><br>   
+    <p>
+        CNN's, also known as ConvNets, consist of multiple layers and are mainly used for image processing and object detection.
+    </p>
+    <img src="2.png" alt="cnn">
+    <p>
+        Data provides each node with information in the form of inputs. The node multiplies the inputs with random weights, calculates them, and adds a bias. Finally, nonlinear functions, also known as activation functions, are applied to determine which neuron to fire.    </p>
+    </p>   
+
+    <a id="VGG16"><h2>VGG16</h2></a><br>
+    <p>
+        VGG16 is a convolution neural net (CNN ) architecture:    <br>
+        Most unique thing about VGG16 is that instead of having a large number of hyper-parameter they focused on having convolution layers of 3x3 filter with a stride 1 and always used same padding and maxpool layer of 2x2 filter of stride 2. It follows this arrangement of convolution and max pool layers consistently throughout the whole architecture. In the end it has 2 FC(fully connected layers) followed by a softmax for output. The 16 in VGG16 refers to it has 16 layers that have weights. This network is a pretty large network and it has about 138 million (approx) parameters.
+    </p> 
+    <img src="3.png" alt="cnn">    </p>
+    <img src="4.webp" alt="cnn" width="400" 
+    height="400">
+
+    <a id="loss"><h2>LOSS FUNCTION</h2></a><br>
+
+    <p>The content loss function: The content loss function ensures that the activations of the higher layers are similar between the content image and the generated image. top-most CNN layer to define the content loss function.<br>
+        Let 
+        A^l_{ij}(I) be the activation of the l th layer, 
+        i th feature map and j th position obtained using the image I. 
+        Then the content loss is defined as,<br>
+        Essentially L_{content} captures the root mean squared error between the activations produced by the generated image and the content image
+    </p>
+    <body><i>L<sub>content</sub>&#61;1\2(&#x2211;<sub>i,j</sub>(A<sub>ij</sub><sup>l</sup>(g)-A<sub>ij</sub><sup>l</sup>(c))<sup>2</sup>)</i></body>h2>
+<br>
+    <h2>Style Loss function</h2>
+
+    <p> 
+    The style loss function:<br> 
+    The style loss function makes sure that the correlation of activations in all the layers are similar between the style image and the generated image.  style information is measured as the amount of correlation present between features maps in a given layer. Next, a loss is defined as the difference of correlation present between the feature maps computed by the generated image and the style image. Mathematically, the style loss is defined as,
+    
+    </p>
+    <p>
+   
+    w^l (chosen uniform) is a weight given to each layer during loss computation and M^l is a hyperparameter that depends on the size of the l th layer. 
+    <br> The style matrix is essentially a Gram matrix, where the (i,j) th element of the style matrix is computed by computing the element wise multiplication of the i th and j th feature maps and summing across both width and height. In the figure, red cross denotes element wise multiplication and the red plus sign denotes summing across both width height of the feature maps.</p>
+    <img src="5.png" alt="cnn" width="400" 
+    height="500">  
+    <br><br>
+    L<sub>style</sub>&#61;&#x2211;<sub>l</sub> w<sup>l</sup>L<sup>l</sup><sub>style</sub>
+<br><br>
+L<sup>l</sup><sub>style</sub>&#61;1/M<sup>l</sup>(&#x2211;<sub>i,j</sub>(G<sub>ij</sub><sup>l</sup>(s)-G<sub>ij</sub><sup>l</sup>g)<sup>2</sup>)<br><br>
+G<sub>ij</sub><sup>l</sup>(I)&#61;&#x2211;<sub>k</sub>A<sub>ik</sub><sup>l</sup>(I)A<sub>jk</sub><sup>l</sup>(I).
+<br><br>
+    <h2>Final function</h2>
+    <p>The final loss is defined as,<br> 
+        where α and β are user-defined hyperparameters. Here β has absorbed the M^l normalisation factor defined earlier. By controlling α and β you can control the amount of content and style injected to the generated image.
+    </p>
+    L&#61; αL<sub>content</sub>&#43; βL<sub>style</sub><br><br>
+    <p align="center">
+        <img src="n2.png" alt="n2" width="500" height="400" align="center">  </p>
+    <a id="adam"><h2>ADAM OPTIMIZER</h2></a><br>
+
+
+    <p>The Adam optimiser to optimise the loss of the network.
+Adam optimizer involves a combination of two gradient descent methodologies:</p>
+<p>Parameters Used :<br>
+    1. ϵ = a small +ve constant to avoid 'division by 0' error when (vt -> 0). (10-8)<br>
+    2. β1 & β2 = decay rates of average of gradients in the above two methods. (β1 = 0.9 & β2 = 0.999)<br>
+    3. α — Step size parameter / learning rate (0.001)<br>
+    </p>
+<p>
+    Since mt and vt have both initialized as 0 (based on the above methods), it is observed that they gain a tendency to be ‘biased towards 0’ as both β1 & β2 ≈ 1. This Optimizer fixes this problem by computing ‘bias-corrected’ mt and vt. This is also done to control the weights while reaching the global minimum to prevent high oscillations when near it. The formulas used are:
+    Intuitively, we are adapting to the gradient descent after every iteration so that it remains controlled and unbiased throughout the process, hence the name Adam. 
+
+Now, instead of our normal weight parameters mt and vt , we take the bias-corrected weight parameters (m_hat)t and (v_hat)t. Putting them into our general equation, we get
+
+
+</p>
+  </body>
+</html>

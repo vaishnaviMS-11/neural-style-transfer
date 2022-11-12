@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Project</title>
+<link rel="stylesheet" href="wcss.css">
+<style>
+  body  {
+    color:rgb(0, 0, 0);
+    background-image: url("blue.webp");
+    background-color: #ffffff;
+  }
+  </style>
+</head>
+<html lang="en">
+</html><body>
+    <H1 style="text-align:center">NEURAL STYLE TRANSFER</H1>
+    <h1>Introduction</h1>
+<p>Neural style transfer (NST) is a very neat idea. NST builds on the key idea that,</p>
+<blockquote>
+    <p><em>it is possible to separate the style representation and content representations in a CNN, learnt during a computer vision task (e.g. image recognition task).</em></p>
+</blockquote>
+<p>Following this concept, NST employs a pretrained convolution neural network (CNN) to transfer styles from a given image to another. This is done by defining a loss function that tries to minimise the differences between a content image, a style image and a generated image, which will be discussed in detail later. By the end of this tutorial you will be able to create very cool artwork like below.</p>
+<img src="img.jpeg" alt="Neural style transfer (NST)" width="350" height="350" class="center"><br><br>
+<li>A content image (c) — the image we want to transfer a style to</li>
+<li> A style image (s) — the image we want to transfer the style from</li>
+<li> An input (generated) image (g) — the image that contains the final result (the only trainable variable)
+</li>
+<a href="index.html">Neural Style Transfer Examples</a>
+</body>
+</html>
